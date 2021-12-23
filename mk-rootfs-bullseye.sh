@@ -102,6 +102,16 @@ gstreamer1.0-plugins-base-apps qtmultimedia5-examples
 \${APT_INSTALL} /packages/gst-plugins-bad1.0/*.deb
 \${APT_INSTALL} /packages/gst-plugins-good1.0/*.deb
 
+#------------------ffmpeg------------
+echo -e "\033[36m Install ffmpeg.................... \033[0m"
+\${APT_INSTALL} ffmpeg
+\${APT_INSTALL} /packages/ffmpeg/*.deb
+
+#------------------mpv------------
+\${APT_INSTALL} mpv smplayer
+echo -e "\033[36m Install mpv.................... \033[0m"
+\${APT_INSTALL} /packages/mpv/*.deb
+
 #---------Camera---------
 echo -e "\033[36m Install camera.................... \033[0m"
 \${APT_INSTALL} cheese v4l-utils
