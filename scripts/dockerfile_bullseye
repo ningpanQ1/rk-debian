@@ -1,0 +1,23 @@
+FROM debian:bullseye
+MAINTAINER Eddie Cai "eddie.cai@outlook.com"
+ARG ARCH
+ARG VERSION
+RUN echo $ARCH $VERSION
+# setup multiarch enviroment
+ENV DEBIAN_FRONTEND noninteractive
+RUN dpkg --add-architecture $ARCH && \
+	echo "deb [trusted=yes] http://mirrors.ustc.edu.cn/debian $VERSION main" > /etc/apt/sources.list && \
+	echo "deb [trusted=yes] http://mirrors.ustc.edu.cn/debian $VERSION-updates main " >> /etc/apt/sources.list && \
+	echo "deb-src [trusted=yes] http://mirrors.ustc.edu.cn/debian $VERSION main " >> /etc/apt/sources.list && \
+	echo "deb-src [trusted=yes] http://mirrors.ustc.edu.cn/debian $VERSION-updates main " >> /etc/apt/sources.list && \
+	apt-get update && \
+	apt-get install -y apt-utils && \
+	apt-get install -y sudo git vim && \
+	apt-get install -y dpkg-dev devscripts && \
+	apt-get install -y qemu-user-static && \
+	apt-get install -y crossbuild-essential-armhf && \
+	apt-get install -y cmake meson ninja-build pkg-config valgrind python3-setuptools && \
+	useradd -c 'rockchip user' -m -d /home/rockchip -s /bin/bash rockchip && \
+	sed -i -e '/\%sudo/ c \%sudo ALL=(ALL) NOPASSWD: ALL' /etc/sudoers && \
+	usermod -a -G sudo rockchip
+USER rockchip
