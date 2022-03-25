@@ -17,6 +17,6 @@ TIMEZONE_DEFAULT="Asia/Shanghai"
 FIRST_USER_NAME="rockchip"
 FIRST_USER_PASS="123456"
 ENABLE_SSH=0
-STAGE_LIST="$DEBIAN_DIR/scripts/rkstage0"
+STAGE_LIST="$DEBIAN_DIR/scripts/rkstage0 $DEBIAN_DIR/scripts/rkstage1"
 
 
