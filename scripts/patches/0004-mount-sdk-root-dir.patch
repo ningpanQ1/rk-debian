@@ -1,0 +1,43 @@
+From b254e9074f0fd26d5fdae1d6faddfcdeff011bb6 Mon Sep 17 00:00:00 2001
+From: Eddie Cai <eddie.cai.linux@gmail.com>
+Date: Fri, 25 Mar 2022 09:51:08 +0800
+Subject: [PATCH 4/4] mount sdk root dir
+
+---
+ scripts/common | 13 ++++++++++++-
+ 1 file changed, 12 insertions(+), 1 deletion(-)
+
+diff --git a/scripts/common b/scripts/common
+index 8197fc4..f68df7e 100644
+--- a/scripts/common
++++ b/scripts/common
+@@ -43,7 +43,13 @@ unmount(){
+ 	else
+ 		DIR=$1
+ 	fi
+-
++	while mount | grep -q "rootfs/sdk"; do
++		local LOCS
++		LOCS=$(mount | grep "rootfs/sdk" | cut -f 3 -d ' ' | sort -r)
++		for loc in $LOCS; do
++			umount "$loc"
++		done
++	done
+ 	while mount | grep -q "$DIR"; do
+ 		local LOCS
+ 		LOCS=$(mount | grep "$DIR" | cut -f 3 -d ' ' | sort -r)
+@@ -90,6 +96,11 @@ on_chroot() {
+ 		mount --bind /sys "${ROOTFS_DIR}/sys"
+ 	fi
+ 
++	if ! mount | grep -q "$(realpath "${ROOTFS_DIR}"/sdk)"; then
++		mkdir -p "${ROOTFS_DIR}/sdk"
++		mount --bind "${TOP_DIR}" "${ROOTFS_DIR}/sdk"
++	fi
++
+ 	setarch linux32 capsh --drop=cap_setfcap "--chroot=${ROOTFS_DIR}/" -- -e "$@"
+ }
+ export -f on_chroot
+-- 
+2.20.1
+

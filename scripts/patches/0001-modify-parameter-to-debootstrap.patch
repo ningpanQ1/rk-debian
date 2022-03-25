@@ -1,7 +1,7 @@
-From ef24db95152e138f2a0385bc33d37ad69dd091f3 Mon Sep 17 00:00:00 2001
+From 61a3d2b6dc540de2cf31eca37e1858f6398a5e1c Mon Sep 17 00:00:00 2001
 From: Eddie Cai <eddie.cai.linux@gmail.com>
 Date: Thu, 17 Mar 2022 09:50:32 +0800
-Subject: [PATCH 1/3] modify parameter to debootstrap
+Subject: [PATCH 1/4] modify parameter to debootstrap
 
 set arch for user, use cache dir, remove keyring
 
