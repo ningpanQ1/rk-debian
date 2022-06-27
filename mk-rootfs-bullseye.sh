@@ -3,6 +3,10 @@
 # Directory contains the target rootfs
 TARGET_ROOTFS_DIR="binary"
 
+if [ -e $TARGET_ROOTFS_DIR ]; then
+	sudo rm -rf $TARGET_ROOTFS_DIR
+fi
+
 case "${ARCH:-$1}" in
 	arm|arm32|armhf)
 		ARCH=armhf
@@ -18,7 +22,7 @@ if [ ! $VERSION ]; then
 	VERSION="release"
 fi
 
-if [ ! -e linaro-bullseye-alip-*.tar.gz ]; then
+if [ ! -e linaro-bullseye-alip-whole.tar.gz ]; then
 	echo "\033[36m Run mk-base-debian.sh first \033[0m"
 	exit -1
 fi
@@ -30,7 +34,7 @@ finish() {
 trap finish ERR
 
 echo -e "\033[36m Extract image \033[0m"
-sudo tar -xpf linaro-bullseye-alip-*.tar.gz
+sudo tar -xpf linaro-bullseye-alip-whole.tar.gz
 
 # packages folder
 sudo mkdir -p $TARGET_ROOTFS_DIR/packages

@@ -58,10 +58,6 @@ apt-get install -y guvcview
 apt-get install -y mosquitto mosquitto-dev libmosquitto-dev
 
 #for sync time
-apt-get remove --purge -y cron
-if [ -f /etc/crontab ]; then
-	rm -rf /etc/crontab
-fi
 apt-get install -y cron
 /tmp/timesync.sh
 rm -rf /tmp/timesync.sh
