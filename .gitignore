@@ -1,3 +1,5 @@
 work
 *.img
 *.info
+binary
+linaro-bullseye-alip-*.tar.gz
