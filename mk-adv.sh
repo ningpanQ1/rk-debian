@@ -92,6 +92,9 @@ locale-gen
 ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 echo "Asia/Shanghai" > /etc/timezone
 
+#resolv.conf
+ln -sf /run/resolvconf/resolv.conf /etc/resolv.conf
+
 #mount userdata to /userdata
 rm /userdata /oem /misc -rf
 mkdir /userdata
