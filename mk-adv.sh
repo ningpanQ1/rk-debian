@@ -79,6 +79,11 @@ apt-get install -y python3-keyutils
 apt-get install -y appmenu-gtk2-module appmenu-gtk3-module
 apt-get install -y at-spi2-core
 
+#for screen locker
+apt-get install -y xscreensaver
+apt-get install -y light-locker
+apt-get install -y mate-screensaver
+apt-get install -y gnome-screensaver
 #-----------------Adjust------------------
 systemctl enable advinit.service
 
