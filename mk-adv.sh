@@ -33,17 +33,14 @@ cat << EOF | sudo chroot $TARGET_ROOTFS_DIR
 apt-get update
 apt-get install -y gnome-screenshot
 apt-get install -y mtd-utils
-apt-get install -y i2c-tools
 apt-get install -y minicom
 apt-get install -y ethtool
 apt-get install -y iperf3
-apt-get install -y pciutils
 apt-get install -y hdparm
 apt-get install -y ftp
 #for rpmb
 apt-get install -y mmc-utils
 #for 4G
-apt-get install -y libpcap0.8 ppp
 apt-get install -y usb-modeswitch mobile-broadband-provider-info modemmanager
 
 #for bt udev
@@ -51,7 +48,6 @@ apt-get install -y at
 apt-get install -y bluez-hcidump
 
 #for camera
-apt-get install -y v4l-utils
 apt-get install -y guvcview
 
 # for mosquitto
@@ -69,6 +65,19 @@ apt-get install -y logrotate
 dpkg -i packages/docker/*.deb
 apt-get install -f -y
 
+#for udisk2
+apt-get install -y libblockdev-crypto2
+apt-get install -y libblockdev-mdraid2
+
+#for udiskie
+apt-get install -y udiskie
+apt-get install -y gir1.2-notify-0.7
+apt-get install -y gobject-introspection
+apt-get install -y python3-keyutils
+
+#for fix udiskie debug error
+apt-get install -y appmenu-gtk2-module appmenu-gtk3-module
+apt-get install -y at-spi2-core
 
 #-----------------Adjust------------------
 systemctl enable advinit.service
