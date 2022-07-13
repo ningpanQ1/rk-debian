@@ -86,6 +86,8 @@ apt-get install -y mate-screensaver
 apt-get install -y gnome-screensaver
 #-----------------Adjust------------------
 systemctl enable advinit.service
+sudo update-alternatives --set iptables /usr/sbin/iptables-legacy
+sudo update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
 
 #for login
 echo "linaro:123456" | chpasswd
