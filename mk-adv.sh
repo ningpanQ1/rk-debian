@@ -124,6 +124,8 @@ ln -s /dev/disk/by-partlabel/misc /misc
 # for MPV
 #chown -R linaro:linaro /home/linaro/.config
 
+#for linaro
+echo "export PATH=$PATH:/sbin" >> /home/linaro/.bashrc
 
 #-----------------Clean------------------
 sudo apt-get clean
