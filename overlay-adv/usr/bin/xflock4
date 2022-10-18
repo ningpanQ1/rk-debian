@@ -27,10 +27,10 @@ LOCK_CMD=$(xfconf-query -c xfce4-session -p /general/LockCommand)
 # Lock by xscreensaver or gnome-screensaver, if a respective daemon is running
 for lock_cmd in \
     "$LOCK_CMD" \
+    "light-locker-command --lock" \
     "mate-screensaver-command --lock" \
     "xfce4-screensaver-command --lock" \
     "xscreensaver-command -lock" \
-    "light-locker-command --lock" \
     "gnome-screensaver-command --lock" 
 do
     if [ ! -z "$lock_cmd" ]; then

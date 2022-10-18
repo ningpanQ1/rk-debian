@@ -38,6 +38,7 @@ apt-get install -y ethtool
 apt-get install -y iperf3
 apt-get install -y hdparm
 apt-get install -y ftp
+apt-get install -y xfce4-terminal
 #for rpmb
 apt-get install -y mmc-utils
 #for 4G
@@ -123,6 +124,8 @@ ln -s /dev/disk/by-partlabel/misc /misc
 # for MPV
 #chown -R linaro:linaro /home/linaro/.config
 
+#for linaro
+echo "export PATH=$PATH:/sbin" >> /home/linaro/.bashrc
 
 #-----------------Clean------------------
 sudo apt-get clean
