@@ -1,5 +1,6 @@
 #!/bin/bash -e
 TARGET_ROOTFS_DIR="binary"
+RELEASE_VERSION="2.0.0.0"
 ARCH=arm64
 
 echo "in mk-adv.sh"
@@ -127,6 +128,8 @@ ln -s /dev/disk/by-partlabel/misc /misc
 #for linaro
 echo "export PATH=$PATH:/sbin" >> /home/linaro/.bashrc
 
+#Adding advantech-info to /etc/os-release...
+echo "ADVANTECH_INFO=\"Beta release version:${RELEASE_VERSION}\"" >> /etc/os-release
 #-----------------Clean------------------
 sudo apt-get clean
 rm -rf /var/lib/apt/lists/*
