@@ -1,6 +1,6 @@
 #!/bin/bash -e
 TARGET_ROOTFS_DIR="binary"
-RELEASE_VERSION="2.0.0.0"
+RELEASE_VERSION="2.0.0.1"
 ARCH=arm64
 
 echo "in mk-adv.sh"

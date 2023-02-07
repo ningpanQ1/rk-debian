@@ -176,21 +176,21 @@ tar xvf /packages/rknpu2/*.tar -C /
 echo -e "\033[36m Install rktoolkit.................... \033[0m"
 \${APT_INSTALL} /packages/rktoolkit/*.deb
 
-echo -e "\033[36m Install Chinese fonts.................... \033[0m"
-# Uncomment zh_CN.UTF-8 for inclusion in generation
-sed -i 's/^# *\(zh_CN.UTF-8\)/\1/' /etc/locale.gen
-echo "LANG=zh_CN.UTF-8" >> /etc/default/locale
+# Uncomment en_US.UTF-8 for inclusion in generation
+sed -i 's/^# *\(en_US.UTF-8\)/\1/' /etc/locale.gen
+echo "LANG=en_US.UTF-8" >> /etc/default/locale
 
 # Generate locale
 locale-gen
 
 # Export env vars
-echo "export LC_ALL=zh_CN.UTF-8" >> ~/.bashrc
-echo "export LANG=zh_CN.UTF-8" >> ~/.bashrc
-echo "export LANGUAGE=zh_CN.UTF-8" >> ~/.bashrc
+echo "export LC_ALL=en_US.UTF-8" >> ~/.bashrc
+echo "export LANG=en_US.UTF-8" >> ~/.bashrc
+echo "export LANGUAGE=en_US.UTF-8" >> ~/.bashrc
 
 source ~/.bashrc
 
+echo -e "\033[36m Install Chinese fonts.................... \033[0m"
 \${APT_INSTALL} ttf-wqy-zenhei fonts-aenigma
 \${APT_INSTALL} xfonts-intl-chinese
 
