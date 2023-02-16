@@ -1,7 +1,7 @@
 [Unit]
 Description=ADV timer detect
 After=systemd-user-sessions.service
-After=serial-getty@ttyFIQ0.service
+After=serial-getty@ttyS2.service
 After=lightdm.service
 After=systemd-logind.service
 
@@ -9,7 +9,7 @@ After=systemd-logind.service
 User=root
 Group=root
 
-Type=sample
+Type=simple
 ExecStart=/usr/sbin/service_detect.sh
 KillMode=control-group
 KillSignal=SIGKILL

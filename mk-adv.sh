@@ -1,6 +1,6 @@
 #!/bin/bash -e
 TARGET_ROOTFS_DIR="binary"
-RELEASE_VERSION="2.0.0.1"
+RELEASE_VERSION="2.0.0.2"
 ARCH=arm64
 
 echo "in mk-adv.sh"
@@ -89,6 +89,7 @@ apt-get install -y mate-screensaver
 apt-get install -y gnome-screensaver
 #-----------------Adjust------------------
 systemctl enable advinit.service
+systemctl enable adv_service_detect.service
 sudo update-alternatives --set iptables /usr/sbin/iptables-legacy
 sudo update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
 
