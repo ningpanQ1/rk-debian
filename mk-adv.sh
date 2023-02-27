@@ -135,7 +135,6 @@ echo "ADVANTECH_INFO=\"Beta release version:${RELEASE_VERSION}\"" >> /etc/os-rel
 #-----------------Clean------------------
 sudo apt-get clean
 rm -rf /var/lib/apt/lists/*
-rm -rf /var/cache/
 rm -rf /packages/
 
 EOF
