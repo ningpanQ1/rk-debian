@@ -91,9 +91,9 @@ export APT_INSTALL="apt-get install -fy --allow-downgrades"
 apt remove -fy firefox-esr chromium*
 
 #---------------power management --------------
-#\${APT_INSTALL} pm-utils triggerhappy bsdmainutils
-#cp /etc/Powermanager/triggerhappy.service  /lib/systemd/system/triggerhappy.service
-rm /etc/Powermanager -rf
+\${APT_INSTALL} pm-utils triggerhappy bsdmainutils
+\${APT_INSTALL} xfce4-power-manager-plugins
+cp /etc/Powermanager/triggerhappy.service  /lib/systemd/system/triggerhappy.service
 
 #---------------Rga--------------
 \${APT_INSTALL} /packages/rga/*.deb
@@ -207,8 +207,8 @@ echo -e "\033[36m Install Chinese fonts.................... \033[0m"
 # HACK debian11.3 to fix bug
 \${APT_INSTALL} fontconfig --reinstall
 
-#\${APT_INSTALL} xfce4
-#ln -sf /usr/bin/startxfce4 /etc/alternatives/x-session-manager
+\${APT_INSTALL} xfce4
+ln -sf /usr/bin/startxfce4 /etc/alternatives/x-session-manager
 
 # HACK to disable the kernel logo on bootup
 #sed -i "/exit 0/i \ echo 3 > /sys/class/graphics/fb0/blank" /etc/rc.local
