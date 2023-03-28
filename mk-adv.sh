@@ -8,7 +8,7 @@ echo "in mk-adv.sh"
 
 #-----------------Overlay------------------
 echo "1.copy overlay"
-sudo cp -rf overlay-adv/* $TARGET_ROOTFS_DIR/
+sudo cp -dprf overlay-adv/* $TARGET_ROOTFS_DIR/
 sudo cp -rf packages-adv/$ARCH/* $TARGET_ROOTFS_DIR/packages/
 
 sudo cp -rf adv-build/* $TARGET_ROOTFS_DIR/tmp/
@@ -126,6 +126,9 @@ ln -s /dev/disk/by-partlabel/misc /misc
 
 # for MPV
 #chown -R linaro:linaro /home/linaro/.config
+
+#chown linaro:linaro
+chown -R linaro:linaro /home/linaro/
 
 #for linaro
 echo "export PATH=$PATH:/sbin" >> /home/linaro/.bashrc
