@@ -56,6 +56,10 @@ apt-get install -y guvcview
 # for mosquitto
 apt-get install -y mosquitto mosquitto-dev libmosquitto-dev
 
+#for calibrator
+apt-get install -y xinput
+apt-get install -y xinput-calibrator
+
 #for onboard
 apt-get install -y onboard
 
