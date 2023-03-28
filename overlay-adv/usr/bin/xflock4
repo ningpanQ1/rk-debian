@@ -28,6 +28,7 @@ LOCK_CMD=$(xfconf-query -c xfce4-session -p /general/LockCommand)
 for lock_cmd in \
     "$LOCK_CMD" \
     "light-locker-command --lock" \
+	"dm-tool switch-to-greeter" \
     "mate-screensaver-command --lock" \
     "xfce4-screensaver-command --lock" \
     "xscreensaver-command -lock" \

@@ -56,6 +56,9 @@ apt-get install -y guvcview
 # for mosquitto
 apt-get install -y mosquitto mosquitto-dev libmosquitto-dev
 
+#for onboard
+apt-get install -y onboard
+
 #for sync time
 apt-get install -y cron
 /tmp/timesync.sh
@@ -67,6 +70,9 @@ apt-get install -y logrotate
 #for docker
 dpkg -i packages/docker/*.deb
 apt-get install -f -y
+
+#for florence
+dpkg -i packages/florence/*.deb
 
 #for udisk2
 apt-get install -y libblockdev-crypto2
