@@ -1,6 +1,6 @@
 #!/bin/bash -e
 TARGET_ROOTFS_DIR="binary"
-RELEASE_VERSION="2.0.0.2"
+RELEASE_VERSION="2.0.0.3"
 ARCH=arm64
 
 echo "in mk-adv.sh"
@@ -32,7 +32,7 @@ cat << EOF | sudo chroot $TARGET_ROOTFS_DIR
 
 #-----------------Install------------------
 apt-get update
-apt-get install -y gnome-screenshot
+#apt-get install -y gnome-screenshot
 apt-get install -y mtd-utils
 apt-get install -y minicom
 apt-get install -y ethtool
@@ -57,8 +57,8 @@ apt-get install -y guvcview
 apt-get install -y mosquitto mosquitto-dev libmosquitto-dev
 
 #for calibrator
-apt-get install -y xinput
-apt-get install -y xinput-calibrator
+#apt-get install -y xinput
+#apt-get install -y xinput-calibrator
 
 #for onboard
 apt-get install -y onboard
@@ -138,7 +138,7 @@ ln -s /dev/disk/by-partlabel/misc /misc
 #chown -R linaro:linaro /home/linaro/.config
 
 #chown linaro:linaro
-chown -R linaro:linaro /home/linaro/
+#chown -R linaro:linaro /home/linaro/
 
 #for linaro
 echo "export PATH=$PATH:/sbin" >> /home/linaro/.bashrc
