@@ -1,6 +1,6 @@
 #!/bin/bash -e
 TARGET_ROOTFS_DIR="binary"
-RELEASE_VERSION="2.0.0.3"
+RELEASE_VERSION="2.0.0.4"
 ARCH=arm64
 
 echo "in mk-adv.sh"
@@ -62,6 +62,7 @@ apt-get install -y mosquitto mosquitto-dev libmosquitto-dev
 
 #for onboard
 apt-get install -y onboard
+sed -i 's/OnlyShowIn=Unity;MATE;/OnlyShowIn=Unity;MATE;xfce;/g' /etc/xdg/autostart/onboard-autostart.desktop
 
 #for sync time
 apt-get install -y cron
